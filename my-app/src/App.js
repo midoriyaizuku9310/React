@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
 import { Component } from 'react';
+import ProductList from './components/ProductList';
 
 // function App() {
 //   const App = () =>{
@@ -42,7 +43,8 @@ class App extends Component {
         <p>app deloitte using react </p>
         <p>{this.fname}</p>
         <p>{lname}</p>
-        <Home/>
+        {/* <Home/> */}
+        <ProductList/>
         </div>
     )
   }
