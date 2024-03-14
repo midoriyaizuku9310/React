@@ -6,9 +6,9 @@ const Home = () => {
     }
 
     const friends = [
-        { firstName: 'sonu', lastName: 'a' },
-        { firstName: 'monu', lastName: 'b' },
-        { firstName: 'tonu', lastName: 'c' },
+        //     { firstName: 'sonu', lastName: 'a' },
+        //     { firstName: 'monu', lastName: 'b' },
+            // { firstName: 'tonu', lastName: 'c' },
     ]
 
     return (
@@ -17,14 +17,22 @@ const Home = () => {
             {/* <h1>Home components</h1> */}
             <p>{employee.eid}</p>
             {/* <p>{friends}</p> */}
-            {friends.map(friend => {
-                return (
-                     <div key={friend.firstName}>
-                        <p>firstname: {friend.firstName}</p>
-                        <p>lastname: {friend.lastName}</p>
-                    </div>
-                )
-            })}
+            {(friends.length>0) &&
+                <div>
+                    <h1>My friends </h1>
+                    {friends.map(friend => {
+                        return (
+                            <div key={friend.firstName}>
+                                <p>
+                                    <span>{friend.firstName}</span>
+                                    <span> {friend.lastName}</span>
+                                </p>
+
+                            </div>
+                        )
+                    })}
+                </div>
+            }
         </>
         // <div>
         //     <h1>this is Home Component which wont be rendered</h1>
