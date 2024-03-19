@@ -1,0 +1,16 @@
+.newApp{
+    color:green;
+    font-weight:bold
+}
+
+.dark {
+    /* Dark theme styles */
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .light {
+    /* Light theme styles */
+    background-color: #fff;
+    color: #222;
+  }
