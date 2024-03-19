@@ -6,6 +6,7 @@ import ProductList from "./ProductList";
 import MenuBar from "./MenuBar";
 import Page404 from "./Page404";
 import CompConcepts from "./CompConcepts";
+import ProductPages from "./ProductPages";
 
 
 const AppRoutes = () => {
@@ -25,6 +26,8 @@ const AppRoutes = () => {
                             <Route exact path='login' element={<Login />} />
                             <Route exact path='product-list' element={<ProductList />} />
                             <Route exact path='product-details' element={<ProductDetails />} />
+                            <Route exact path='product-details/:productId'  element={<ProductDetails />} />
+                            <Route exact path='product-pages' element={<ProductPages />} />
                             <Route path='' element={<Home/>}/>
                             <Route path='*' element={<Page404 />} />
 

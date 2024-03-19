@@ -1,7 +1,7 @@
 const WrapperComponent =({children}) => {
 
     return (
-        <div style={{color: 'white', backgroundColor:'#94bbe9'}}>
+        <div  className= 'display6 text-dark'>
             {/* <p>from Wrapper Component</p> */}
             {children}
         </div>

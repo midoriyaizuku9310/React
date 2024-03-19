@@ -25,6 +25,9 @@ const MenuBar = () => {
                             <Link className="nav-link active" to="product-list">Product List</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link active" to="product-pages">Product Pages</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link active" to="product-details">Product Details</Link>
                         </li>
                         <li className="nav-item">

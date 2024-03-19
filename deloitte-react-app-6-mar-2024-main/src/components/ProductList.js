@@ -3,6 +3,7 @@ import ProductDetails from "./ProductDetails";
 import WrapperComponent from "./WrapperComponent";
 
 import { getAllProducts } from '../services/ProductService';
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
 
@@ -27,13 +28,16 @@ const ProductList = () => {
             {products &&
                 products.map((product) => {
                     return (
-                        <WrapperComponent>
-                            <p key={product.id}>{product.title}</p>
-                        </WrapperComponent>
+                        <WrapperComponent  key={product.id}>
+                         {/* <div class="d-grid gap-2"> */}
+                            {/* <p key={product.id}>{product.title}</p> */}
+                            <Link className="btn btn-outline-info"  to={`/product-details/${product.id}`}>{product.title} </Link>
+                         </WrapperComponent>
+                        // {/* </div> */}
                     )
                 })
             }
-            <ProductDetails />
+            {/* <ProductDetails /> */}
         </>
     );
 };
