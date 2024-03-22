@@ -39,6 +39,12 @@ const MenuBar = () => {
                         <li className="nav-item">
                             <Link className="nav-link active" to="logout">Logout</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="appointment">Book An Appointment</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="bookings">bookings</Link>
+                        </li>
                     </ul>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search a product..." />

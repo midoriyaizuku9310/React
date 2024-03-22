@@ -1,34 +1,46 @@
 import { useEffect, useState } from "react";
+import { setUserObj } from "../redux/UserSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Login = () => {
 
-    const [loginData, setLoginData] = useState({ username: '', password: '' });
+    //const [loginData, setLoginData] = useState({ username: '', password: '' });
     const [loginMessage, setLoginMessage] = useState('');
     const [messageStyle, setMessageStyle] = useState({ color: 'blue' }); // apply multiple styles and change then dynamically 
 
+    const dispatch = useDispatch()
+
+
+    const userListData = useSelector(store => store.userList.userObj)
+
     useEffect(() => {
-        setLoginData(
-            { username: '', password: '' }
-        );
+        // setLoginData(
+        //     { username: '', password: '' }
+        // );
+        setUserObj({
+            username: '',
+            password: ''
+        })
         setLoginMessage('');
     }, []);
 
     const handleLogin = (evt) => {
         console.log(evt.target.value);
-        setLoginData({ ...loginData, [evt.target.name]: evt.target.value });
+        // setLoginData({ ...loginData, [evt.target.name]: evt.target.value });
+        dispatch(setUserObj({ ...userListData, [evt.target.name]: evt.target.value }))
     };
 
     const submitLogin = (evt) => {
-        console.log(loginData);
-        if (loginData.username === 'sonu' && loginData.password === 'sonu') {
-            setLoginMessage(`${loginData.username} logged in successfully!`);
+        console.log(userListData);
+        if (userListData.username === 'sonu' && userListData.password === 'sonu') {
+            setLoginMessage(`${userListData.username} logged in successfully!`);
             setMessageStyle({ color: 'green' });
 
         } else {
             setLoginMessage('Invalid credentials.');
             setMessageStyle({ color: 'red' });
         }
-        setLoginData({ username: '', password: '' }); // clear form
+        setUserObj({ username: '', password: '' }); // clear form
         evt.preventDefault(); // prevents page reload  
     };
 
@@ -39,9 +51,9 @@ const Login = () => {
             {/* <h1 style={{ color: 'blue' }}>Login Component</h1 > */}
             <h1 style={messageStyle}>Login Component</h1 >
             <form onSubmit={submitLogin}>
-                <input type="text" name="username" value={loginData.username} onChange={handleLogin} />
+                <input type="text" name="username" value={userListData.username} onChange={handleLogin} />
                 <br />
-                <input type="password" name="password" value={loginData.password} onChange={handleLogin} />
+                <input type="password" name="password" value={userListData.password} onChange={handleLogin} />
                 <br />
                 <input type="submit" value="Login" />
             </form>

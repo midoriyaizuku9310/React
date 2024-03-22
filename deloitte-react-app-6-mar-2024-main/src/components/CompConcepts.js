@@ -1,26 +1,51 @@
-import ThemeContext from "./context/ThemeButton";
-import ThemeButton from "./context/ThemeButton";
-import { ThemeProvider } from "./context/ThemeContext";
-import ThemedComponent from "./context/ThemedComponent";
+import {Suspense, lazy} from "react";
 
-// uncontrolled component 
+import FallbackComponent from "./FallbackComponent";
+import ProductList from "./ProductList";
+
+
+const LazyComponent = lazy(() => import("./LazyComponent"));
+
 const CompConcepts = () => {
 
     return (
         <>
-            <h1>Context API Concepts</h1>
-            <ThemeProvider>
-                <p>here we should be able to change the theme</p>
-                <ThemedComponent/>
-                <ThemeButton/>
-                
-            </ThemeProvider>
-           
+        <p>Lazy Suspense Component</p>
+        <Suspense fallback={FallbackComponent}>
+            <p>Lazy...</p>
+            <LazyComponent />
+            
+        </Suspense>
         </>
-    );
+    )
 }
 
 export default CompConcepts;
+
+
+// import ThemeContext from "./context/ThemeButton";
+// import ThemeButton from "./context/ThemeButton";
+// import { ThemeProvider } from "./context/ThemeContext";
+// import ThemedComponent from "./context/ThemedComponent";
+
+// // uncontrolled component 
+// const CompConcepts = () => {
+
+//     return (
+//         <>
+//             <h1>Context API Concepts</h1>
+//             <ThemeProvider>
+//                 <p>here we should be able to change the theme</p>
+//                 <ThemedComponent/>
+//                 <ThemeButton/>
+                
+//             </ThemeProvider>
+           
+//         </>
+//     );
+// }
+
+// export default CompConcepts;
 
 
 

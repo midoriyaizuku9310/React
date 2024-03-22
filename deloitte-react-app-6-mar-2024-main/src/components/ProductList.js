@@ -4,17 +4,26 @@ import WrapperComponent from "./WrapperComponent";
 
 import { getAllProducts } from '../services/ProductService';
 import { Link } from "react-router-dom";
-
+// imports related to redux
+import { setProductListObj } from "../redux/ProductSlice";
+import { useSelector, useDispatch } from "react-redux";
 const ProductList = () => {
 
-    const [products, setProducts] = useState('');
+    const dispatch = useDispatch()
+
+   // const [products, setProducts] = useState('');
+
+    // const productListDataFromStore = useSelector( (store) => { return store.productList.productListObj})
+    const productListData = useSelector( store =>   store.productList.productListObj)
+
 
     useEffect(() => {
 
         getAllProducts()
             .then((response) => {
-                console.log(response.data);
-                setProducts(response.data.products);
+                // console.log(response.data);
+                // setProducts(response.data.products);
+                dispatch(setProductListObj(response.data.products))
             })
             .catch((error) => {
                 console.log(error);
@@ -25,8 +34,9 @@ const ProductList = () => {
         <>
             <h1>Product List - Parent Component </h1>
             <p>Product List</p>
-            {products &&
-                products.map((product) => {
+            <p>{ productListData && productListData.length}</p>
+            {productListData &&
+                productListData.map((product) => {
                     return (
                         <WrapperComponent  key={product.id}>
                          {/* <div class="d-grid gap-2"> */}
